@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lelam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 13:38:27 by lelam             #+#    #+#             */
-/*   Updated: 2023/11/22 13:38:27 by lelam            ###   ########.fr       */
+/*   Created: 2023/11/22 17:55:22 by lelam             #+#    #+#             */
+/*   Updated: 2023/11/22 17:55:22 by lelam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ int	ft_isalpha(int c)
 
 int	main(void)
 {
-	printf("Is Alpha: %d\n", ft_isalpha('a'));
-	printf("Is Not Alpha: %d\n", ft_isalpha(7));
+	int	a;
+	int	b;
+
+	a = ft_isalpha('k');
+	b = ft_isalpha(7);
+	printf("Is Alpha: %d\n", a);
+	printf("Is Not Alpha: %d\n", b);
 	return (0);
 }
