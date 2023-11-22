@@ -12,30 +12,16 @@
 
 #include <stdio.h>
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')))
-			return (0);
-		i++;
-	}
-	return (1);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }
 
 int	main(void)
 {
-	char	*str1 = "Alphabetical";
-	char	*str2 = "NotAlpha12345";
-	int	a;
-	int	b;
-
-	a = ft_isalpha(str1);
-	b = ft_isalpha(str2);
-	printf("Is Alpha: %d\n", a);
-	printf("Is Not Alpha: %d\n", b);
+	printf("Is Alpha: %d\n", ft_isalpha('a'));
+	printf("Is Not Alpha: %d\n", ft_isalpha(7));
 	return (0);
 }
