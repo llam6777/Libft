@@ -21,12 +21,10 @@ int	ft_isalpha(int c)
 
 int	main(void)
 {
-	int	a;
-	int	b;
+	int	a = 'k';
+	int	b = 7;
 
-	a = ft_isalpha('k');
-	b = ft_isalpha(7);
-	printf("Is Alpha: %d\n", a);
-	printf("Is Not Alpha: %d\n", b);
+	printf("Is Alpha: %d\n", ft_isalpha(a));
+	printf("Is Not Alpha: %d\n", ft_isalpha(b));
 	return (0);
 }
