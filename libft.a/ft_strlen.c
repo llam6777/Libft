@@ -12,23 +12,23 @@
 
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while (str[i] != '\0')
-	    i++;
-	return (i);
+	len = 0;
+	while (s[len] != 0)
+	    len++;
+	return (len);
 }
 
 int	main(void)
 {
-	char	*str;
-	int		num;
+	const char	*str;
+	size_t		num;
 
 	str = "Hello World!";
 	num = ft_strlen(str);
-	printf("Number of Characters: %d\n", num);
+	printf("Number of Characters: %lu\n", num);
 	return (0);
 }
