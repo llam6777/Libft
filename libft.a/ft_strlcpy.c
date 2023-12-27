@@ -12,10 +12,10 @@
 
 #include <stdio.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	slen;
+	size_t	i;
+	size_t	slen;
 
 	slen = 0;
 	while (src[slen] != '\0')
@@ -26,31 +26,31 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	{
 		while (src[i] != '\0' && i < size)
 		{
-			dest[i] = src[i];
+			dst[i] = src[i];
 			i++;
 		}
-		dest[i] = '\0';
+		dst[i] = '\0';
 	}
 	return (slen);
 }
 
 int	main(void)
 {
-	char	dest[50];
-	char	src[] = "This is the source string!";
-	unsigned int	size;
-	unsigned int	slen;
+	char		dst[50];
+	const char	src[] = "This is the source string!";
+	size_t		size;
+	size_t		slen;
 
-	size = 26;
+	size = 15;
 	if (size == 0)
 		printf("Value for size is not accepted!\n");
 	else
 	{
-		slen = ft_strlcpy(dest, src, size);
+		slen = ft_strlcpy(dst, src, size);
 		printf("Source: %s\n", src);
-		printf("Length of Source: %d\n", slen);
-		printf("Size Limit: %d\n", size);
-		printf("Destination: %s\n", dest);
+		printf("Length of Source: %lu\n", slen);
+		printf("Size Limit: %lu\n", size);
+		printf("Destination: %s\n", dst);
 	}
 	return (0);
 }
