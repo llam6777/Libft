@@ -12,9 +12,9 @@
 
 #include <stdio.h>
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while ((i < n) && ((s1[i] != '\0') || (s2[i] != '\0')))
@@ -28,21 +28,21 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 
 int	main(void)
 {
-	char* str1 = "Hello World!";
-	char* str2 = "Hello World!";
-	char* str3 = "Hello People!";
-	int	num;
+	const char	*str1 = "Hello World!";
+	const char	*str2 = "Hello World!";
+	const char	*str3 = "Hello People!";
+	size_t	num;
 	int	result;
 
-	num = 5;
-	result = ft_strncmp(str1, str2, num);
-	printf("Strings are equal up to %d characters.\n", num);
+	num = (size_t)5;
+	result = ft_strncmp(str1, str3, num);
+	printf("Strings are equal up to %lu characters.\n", num);
 	printf("Value returned is: %d\n", result);
-	num = 15;
+	num = (size_t)15;
 	result = ft_strncmp(str1, str2, num);
 	printf("\nStrings are equal.\n");
 	printf("Value returned is: %d\n", result);
-	num = 9;
+	num = (size_t)9;
 	result = ft_strncmp(str1, str3, num);
 	printf("\nStrings are not equal.\n");
 	printf("Value returned is: %d\n", result);
