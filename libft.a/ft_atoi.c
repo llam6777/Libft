@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	neg;
@@ -21,18 +21,18 @@ int	ft_atoi(char *str)
 	i = 0;
 	neg = 1;
 	result = 0;
-	while ((str[i] <= ' ') && (str[i] != '\0'))
+	while ((nptr[i] <= ' ') && (nptr[i] != '\0'))
 		i++;
-	while (((str[i] == '-') || (str[i] == '+')) && (str[i] != '\0'))
+	while (((nptr[i] == '-') || (nptr[i] == '+')) && (nptr[i] != '\0'))
 	{
-		if (str[i] == '-')
+		if (nptr[i] == '-')
 			neg *= -1;
 		i++;
 	}
-	while (((str[i] >= '0') && (str[i] <= '9')) && (str[i] != '\0'))
+	while (((nptr[i] >= '0') && (nptr[i] <= '9')) && (nptr[i] != '\0'))
 	{
 		result *= 10;
-		result += str[i] - '0';
+		result += nptr[i] - '0';
 		i++;
 	}
 	return (result * neg);
@@ -41,8 +41,8 @@ int	ft_atoi(char *str)
 int	main(void)
 {
 	printf("%d\n", ft_atoi("---+++1234"));
-	printf("%d\n", ft_atoi("   ---+++1234abc567"));
-	printf("%d\n", ft_atoi("---+--+1234ab123"));
-    printf("%d\n", ft_atoi("--  +abc1234"));
+	printf("%d\n", ft_atoi("   ---+++1234abc"));
+	printf("%d\n", ft_atoi(" ---+--+1234ab123"));
+    printf("%d\n", ft_atoi("--  +1234"));
 	return (0);
 }
