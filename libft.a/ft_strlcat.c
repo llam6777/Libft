@@ -12,45 +12,45 @@
 
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	len = 0;
+	while (s[len] != 0)
+	    len++;
+	return (len);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	dlen;
-	unsigned int	slen;
+	size_t	i;
+	size_t	dlen;
+	size_t	slen;
 
-	dlen = ft_strlen(dest);
+	dlen = ft_strlen(dst);
 	slen = ft_strlen(src);
 	i = 0;
 	if (size == 0 || size <= dlen)
 		return (slen + size);
-	while ((src[i] != '\0') && (i < size - dlen - 1))
+	while ((i < size - dlen - 1) && (src[i] != '\0'))
 	{
-		dest[dlen + i] = src[i];
+		dst[dlen + i] = src[i];
 		i++;
 	}
-	dest[dlen + i] = '\0';
+	dst[dlen + i] = '\0';
 	return (dlen + i);
 }
 
 int	main(void)
 {
-	char	str1[] = "Original String!";
-	char	str2[] = "Appended String!";
-	unsigned int	num;
+	char			str1[30] = "Original String!";
+	const char		str2[] = "Appended String!";
+	size_t			size;
 
-	num = 33;
-	printf("%d\n", ft_strlcat(str1, str2, num));
-	if (num > ft_strlen(str1))
+	size = 31;
+	printf("%lu\n", ft_strlcat(str1, str2, size));
+	if (size > ft_strlen(str1))
 		printf("%s\n", str1);
 	return (0);
 }
